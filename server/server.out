@@ -1,0 +1,2 @@
+[dotenv@17.2.1] injecting env (2) from .env -- tip: ⚙️  override existing env vars with { override: true }
+Server listening on :4000SENTINELHUB_TOKEN=
