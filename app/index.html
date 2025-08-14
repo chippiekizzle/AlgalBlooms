@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Algal Bloom Monitor</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet-draw@1.0.4/dist/leaflet.draw.css" crossorigin="" />
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <noscript>Enable JavaScript to use the app.</noscript>
+  <div id="map"></div>
+  <div id="control-panel" class="control-panel">
+    <div class="row">
+      <label for="layerSelect">Layer</label>
+      <select id="layerSelect">
+        <option value="VIIRS_SNPP_Chlorophyll_A">VIIRS SNPP Chlorophyll-a</option>
+        <option value="MODIS_Terra_Chlorophyll_A">MODIS Terra Chlorophyll-a</option>
+      </select>
+    </div>
+    <div class="row">
+      <label for="dateInput">Date</label>
+      <div class="date-controls">
+        <button id="datePrev" title="Previous day" aria-label="Previous day">◀</button>
+        <input id="dateInput" type="date" />
+        <button id="dateNext" title="Next day" aria-label="Next day">▶</button>
+      </div>
+    </div>
+    <div class="row">
+      <label for="opacitySlider">Opacity</label>
+      <input id="opacitySlider" type="range" min="0" max="1" step="0.05" value="0.7" />
+    </div>
+    <div class="row aoi-row">
+      <button id="importBtn">Import AOI</button>
+      <input id="importInput" type="file" accept=".geojson,application/geo+json,application/json" hidden />
+      <button id="exportBtn">Export AOI</button>
+      <button id="clearBtn">Clear AOIs</button>
+    </div>
+    <div class="row small">
+      <span id="statusText"></span>
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
+  <script src="https://unpkg.com/leaflet-draw@1.0.4/dist/leaflet.draw.js" crossorigin=""></script>
+  <script src="https://cdn.jsdelivr.net/npm/@turf/turf@6/turf.min.js"></script>
+  <script src="./app.js"></script>
+</body>
+</html>
